@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title= title 
+        block head
+            link(rel='stylesheet', href='/css/style.css')
+            script(src="/js/main.js", defer)
+            link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
+    body
+        block content
+            header.navbar 
+                a(href="/").logo
+                    img(src="img/test.jpg")
+                ul
+                    li
+                        a(href="/") Home
+                    li
+                        a(href="/login") Login
+                    li
+                        a(href="/register") Register
+                    li
+                        a(href="/userprofile") UserProfile
+                    li
+                        if(isAuthenticated===true)
+                            form(action='/login/logout', method='POST')
+                                button(type="submit") Sing out
+                        else 
+                            a(href="/login") Log In 

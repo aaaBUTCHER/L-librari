@@ -1,0 +1,29 @@
+html
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        title= title
+        block head
+                link(rel='stylesheet', href='/css/auth.css')
+                script(src="/js/auth.js", defer) 
+    body
+        h2 Register
+            form(action='/register', method='post')
+                label(for='firstname') Name
+                    input(type='text', name='firstname', placeholder='Enter your first name', required)
+                labell(for='lastname') LastName
+                    input(type='text', name='lastname', placeholder='Enter your last name', required)
+                label(for='username') Username
+                    input(type='text', name='username', placeholder='Enter your username', required)
+                label(for='date_of_birth') Date of birth
+                    input(type='date', name='date_of_birth', placeholder='Enter your date of birth', required)
+                label(for='email') Email
+                    input(type='email', name='email', placeholder='Enter your email', required)
+                label(for='password1') Password
+                    input(type='password', name='password1', placeholder='Enter your password', required)
+                label(for='password2') Confirm your password
+                    input(type='password', name='password2', placeholder='Enter your password', required)
+                button(type='submit') Register
+            p | A member? 
+                a(href='login') LogIn now

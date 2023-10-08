@@ -1,0 +1,8 @@
+exports.isAuth = async (req, res, next) => {
+    
+    if(!req.session.isLoggedIn){
+        await res.render('redirect',{message: "Duhesh me u kan logged in"});
+    }else{
+        next();
+    }
+}

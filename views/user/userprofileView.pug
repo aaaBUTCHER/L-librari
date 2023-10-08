@@ -1,0 +1,113 @@
+include ../includes/navbar.pug
+    block content
+        .container.section1.div
+            .row.mt-5(style="min-height:55%; margin-top:105px !important; margin-bottom:55px !important;")
+                .col-xl-5.col-sm-12.text-center.imgmain
+                        img(src= user.user_image, width="250px", height="250px").rounded-circle.shadow-4-strong.img-thumnail
+                        h1= user.emrin +" "+user.mbiemri
+                .col-xl-7.col-sm-12
+                    .row
+                        form(action="/user-profile", method="POST")#profileForm
+                            .form-group
+                                .row
+                                    .col-xl-6.col-sm-11.m-1
+                                        label(for="username") Emri
+                                        .d-flex.align-items-center
+                                            input(type="text", placeholder="Emri", value=user.emrin readonly)#username.form-control
+                                            button.btn.btn-primary(type="button", data-bs-toggle="modal", data-bs-target="#Emri") Edit
+                                            .modal.fade#Emri(tabindex="-1", aria-labelledby="exampleModalLabel", aria-hidden="true")
+                                                .modal-dialog.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+                                                    .modal-content
+                                                        .modal-body.text-center.mt-3.m-2
+                                                            img(src="img/library.jpg", width="100px", height="100px", style="border-radius: 45%;")
+                                                            hr
+                                                        .modal-body
+                                                                h4.ms-1.m-3 Konfirmo ndryshimin e Emrit
+                                                                p.m-3 Ju lutemi vini re: Nëse keni ndryshuar Emrin tuaj, nuk mund ta ndryshoni përsëri për 2 javë pasi të konfirmoni këtë ndryshim.
+                                                                h2.ms-1.m-3= "Emri aktual : "+ user.emrin
+                                                                input(type="text", placeholder="Emri i ri", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                                input(type="text", placeholder="Konfirmo Emrin i ri", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                                p Une e kuptoj se nuk mund ta ndryshoj emrin tim perseri per 2 jav pas ketij ndryshimi
+                                                        .modal-footer
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Save
+                                    .col-xl-6.col-sm-11.m-1
+                                        label(for="lastname") Mbiemri
+                                        .d-flex.align-items-center
+                                            input(type="text", placeholder="Mbiemri", value=user.mbiemri readonly)#lastname.form-control
+                                            button.btn.btn-primary(type="button", data-bs-toggle="modal", data-bs-target="#Mbiemri2") Edit
+                                            .modal.fade#Mbiemri2(tabindex="-1", aria-labelledby="exampleModalLabel", aria-hidden="true")
+                                                .modal-dialog.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+                                                    .modal-content
+                                                        .modal-body.text-center.mt-3.m-2
+                                                            img(src="img/library.jpg", width="100px", height="100px", style="border-radius: 45%;")
+                                                            hr
+                                                        .modal-body
+                                                                h4.ms-1.m-3 Konfirmo ndryshimin e Mbiemrit
+                                                                p.m-3 Ju lutemi vini re: Nëse keni ndryshuar Mbiemrit tuaj, nuk mund ta ndryshoni përsëri për 2 javë pasi të konfirmoni këtë ndryshim.
+                                                                h2.ms-1.m-3= "Emri aktual :"+ user.mbiemri
+                                                                input(type="text", placeholder="Mbiemri i ri", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                                input(type="text", placeholder="Konfirmo Mbiemrin i ri", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                                p Une e kuptoj se nuk mund ta ndryshoj emrin tim perseri per 2 jav pas ketij ndryshimi
+                                                        .modal-footer
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Save
+                                .row
+                                    .col-xl-6.col-sm-11.m-1
+                                        label(for="emailaddres") Email Adresa
+                                        .d-flex.align-items-center
+                                            input(type="email", placeholder="email-ketu", value=user.email readonly)#emailaddres.form-control
+                                            button.btn.btn-primary(type="button", data-bs-toggle="modal", data-bs-target="#emailaddres2") Edit
+                                            .modal.fade#emailaddres2(tabindex="-1", aria-labelledby="exampleModalLabel", aria-hidden="true")
+                                                .modal-dialog.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+                                                    .modal-content
+                                                        .modal-body.text-center.mt-3.m-2
+                                                            img(src="img/library.jpg", width="100px", height="100px", style="border-radius: 45%;")
+                                                            hr
+                                                        .modal-body
+                                                                h4.ms-1.m-3 Konfirmo ndryshimin e Email Adreses
+                                                                p.m-3 Ju lutemi vini re: Nëse keni ndryshuar Email Adreses tuaj të shfaqur të Epic Games, nuk mund ta ndryshoni përsëri për 2 javë pasi të konfirmoni këtë ndryshim.
+                                                                h2.ms-1.m-3= "Email Adreses aktuale e shfaqjes: "+ user.email
+                                                                input(type="email", placeholder="Email Adresesa e re", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                                input(type="email", placeholder="Konfirmo Email Adresesem e re", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                                p Une e kuptoj se nuk mund ta ndryshoj emrin tim perseri per 2 jav pas ketij ndryshimi
+                                                        .modal-footer
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Save
+                                    .col-xl-6.col-sm-11.m-1
+                                        label(for="pw") Password
+                                        .d-flex.align-items-center
+                                            input(type="password", placeholder="pw-ketu", value="*********" readonly)#pw.form-control
+                                            button.btn.btn-primary(type="button", data-bs-toggle="modal" data-bs-target="#pw2") Edit
+                                            .modal.fade#pw2( data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true")
+                                                .modal-dialog.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+                                                    .modal-content
+                                                        .modal-body.text-center.mt-3.m-2
+                                                            img(src="img/library.jpg", width="100px", height="100px", style="border-radius: 45%;")
+                                                            hr
+                                                        .modal-body
+                                                                input(type="password", placeholder="Fjalkalimi aktual", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                                input(type="password", placeholder="Fjalkalimi i ri", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                                input(type="password", placeholder="Konfirmo Fjalkalimin e ri", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                        .modal-footer
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Save
+                                .row
+                                    .col-xl-6.col-sm-11.m-1
+                                        label(for="bio") Bio
+                                        .d-flex.align-items-center
+                                            textarea(style=" row:3; resize:none;" readonly)#bio.form-control= user.bio
+                                            button.btn.btn-primary.ms-3(type="button", data-bs-toggle="modal" data-bs-target="#bio2") Edit
+                                            .modal.fade#bio2( data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true")
+                                                .modal-dialog.modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+                                                    .modal-content
+                                                        .modal-body.text-center.mt-3.m-2
+                                                            img(src="img/library.jpg", width="100px", height="100px", style="border-radius: 45%;")
+                                                            hr
+                                                        .modal-body.mb-4
+                                                                h2.m-3 Bio juaj aktuale eshte :
+                                                                p.m-3= user.bio
+                                                                input(type="text", placeholder="bio", style="max-width: 300px !important")#lastname.form-control.m-3.p-4
+                                                        .modal-footer
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Close
+                                                            button.btn.btn-secondary(type="button", data-bs-dismiss="modal") Save
